@@ -40,8 +40,10 @@ class HandleInertiaRequests extends Middleware
                 ]);
             },
             'sidebarpermissions'=>function()use($request){
-                $roles = $request->user()->roles->load('permissions');
                 $permissions = array();
+                if($request->user()){
+                $roles = $request->user()->roles->load('permissions');
+            
                foreach($roles as $role){
                 foreach($role->permissions as $permission){
                  str_contains($permission->title, '_access') &&  array_push($permissions,$permission->title);
@@ -49,6 +51,7 @@ class HandleInertiaRequests extends Middleware
                 }
 
                }
+            }
                 return $permissions;
             }
         ]);

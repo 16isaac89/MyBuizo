@@ -21,8 +21,11 @@
     "dependencies": {
         "flowbite": "^1.6.4",
         "flowbite-react": "^0.4.2",
+        "jspdf": "^2.5.1",
+        "jspdf-autotable": "^3.5.28",
         "primeicons": "^6.0.1",
         "primereact": "^9.2.1",
+        "react-csv": "^2.2.2",
         "react-icons": "^4.8.0",
         "react-select": "^5.7.2",
         "select": "^1.1.2"

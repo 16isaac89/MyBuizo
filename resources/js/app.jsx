@@ -17,5 +17,7 @@ createInertiaApp({
     },
     progress: {
         color: '#4B5563',
+		   // Whether the NProgress spinner will be shown...
+    showSpinner: true,
     },
 });
