@@ -6,11 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductBrand;
 use Inertia\Inertia;
+use App\Http\Requests\StoreProductBrandRequest;
+use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Http\Controllers\Services\ImageService;
 
 class ProductBrandController extends Controller
 {
+    use MediaUploadingTrait;
     public function index(){
         $productbrands = ProductBrand::with('media')->get();
+       // dd($productbrands);
         return Inertia::render('Admin/productbrand/index',[
             "productbrands" => $productbrands
         ]);
@@ -28,10 +33,10 @@ class ProductBrandController extends Controller
         //create the brand
         $brand = ProductBrand::create($request->all());
     //save image for the broduct brand
-        if ($request->categoryimage) {
-            $brand->addMedia(storage_path('tmp/uploads/' . basename($processimage->name)))->toMediaCollection('brandimage');
+        if ($request->imageresource) {
+            $brand->addMedia(storage_path('tmp/uploads/' . basename($processimage->name)))->toMediaCollection('imageresource');
         }
     
-        return redirect()->route('productcategories.index');
+        return redirect()->route('productbrands.index');
     }
 }

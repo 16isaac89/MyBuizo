@@ -19,6 +19,9 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
+        "@fortawesome/free-solid-svg-icons": "^6.4.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
         "flowbite": "^1.6.4",
         "flowbite-react": "^0.4.2",
         "jspdf": "^2.5.1",
@@ -26,6 +29,7 @@
         "primeicons": "^6.0.1",
         "primereact": "^9.2.1",
         "react-csv": "^2.2.2",
+        "react-datetime-picker": "^5.2.0",
         "react-icons": "^4.8.0",
         "react-select": "^5.7.2",
         "select": "^1.1.2"

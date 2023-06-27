@@ -15,7 +15,7 @@ const{auth} = usePage().props
 
 const { data, setData, post, processing, errors,progress } = useForm({
     title: '',
-    categoryimage:null
+    imageresource:null
 });
 
 const submit = (e) => {
@@ -52,15 +52,15 @@ const submit = (e) => {
       onChange={(e)=>setData('title',e.target.value)}
     />
 
-{data.categoryimage && (
+{data.imageresource && (
         <div>
           <img
             alt="not found"
             width={"250px"}
-            src={URL.createObjectURL(data.categoryimage)}
+            src={URL.createObjectURL(data.imageresource)}
           />
           <br />
-          <button onClick={() => setData('catehoryimage',null)}>Remove</button>
+          <button onClick={() => setData('imageresource',null)}>Remove</button>
         </div>
       )}
 
@@ -72,7 +72,7 @@ const submit = (e) => {
         name="myImage"
         onChange={(event) => {
           console.log(event.target.files[0]);
-          setData('categoryimage',event.target.files[0]);
+          setData('imageresource',event.target.files[0]);
         }}
       />
     

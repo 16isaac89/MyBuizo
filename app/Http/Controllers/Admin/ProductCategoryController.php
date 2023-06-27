@@ -33,8 +33,8 @@ public function store(StoreProductCategoryRequest $request)
 
     $category = ProductCategory::create($request->all());
 
-    if ($request->categoryimage) {
-        $category->addMedia(storage_path('tmp/uploads/' . basename($processimage->name)))->toMediaCollection('categoryimage');
+    if ($request->imageresource) {
+        $category->addMedia(storage_path('tmp/uploads/' . basename($processimage->name)))->toMediaCollection('imageresource');
     }
 
     return redirect()->route('productcategories.index');

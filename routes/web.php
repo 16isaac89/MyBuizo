@@ -41,6 +41,8 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('productcategories','Admin\ProductCategoryController');
     Route::resource('productvariations','Admin\ProductVariationController');
     Route::resource('products','Admin\ProductController');
+    Route::resource('patients','Admin\PatientController');
+    Route::resource('units','Admin\UnitController');
 });
 
 require __DIR__.'/auth.php';

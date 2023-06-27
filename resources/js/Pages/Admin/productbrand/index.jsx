@@ -4,9 +4,9 @@ import { Column } from 'primereact/column';
 import { Head, usePage,Link } from '@inertiajs/react';
 
 export default function index() {
-    const {auth,productcategories} = usePage().props
+    const {auth,productbrands} = usePage().props
   const imageBodyTemplate = (item) =>{
-return <img src={item.categoryimage.preview_url} alt={item.title} className='w-6rem shadow-2 border-round'/>
+return <img src={item.media[0]?.original_url} alt={item.title} className='w-6rem shadow-2 border-round'/>
    }
     return (
         <AuthenticatedLayout
@@ -17,9 +17,9 @@ return <img src={item.categoryimage.preview_url} alt={item.title} className='w-6
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <Link href={route('productcategories.create')}>ADD</Link>
+                <Link href={route('productbrands.create')}>ADD</Link>
                 <div className="card">
-                <DataTable value={productcategories} paginator rows={10} dataKey="id" filterDisplay="row">
+                <DataTable value={productbrands} paginator rows={10} dataKey="id" filterDisplay="row">
                 <Column field="id" header="ID" style={{ minWidth: '12rem' }} />
                 <Column field="title" header="Title" style={{ minWidth: '12rem' }} />
                 <Column field="categoryimage" header="Image" body={imageBodyTemplate} style={{ minWidth: '12rem' }} />

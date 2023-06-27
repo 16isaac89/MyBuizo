@@ -34,7 +34,7 @@ class ImageService
         } catch (\Exception $e) {
         }
 
-        $file = $requestimage->file('categoryimage');
+        $file = $requestimage->file('imageresource');
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
 

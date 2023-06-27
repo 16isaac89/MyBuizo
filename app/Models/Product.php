@@ -29,6 +29,8 @@ class Product extends Model implements HasMedia
         'description',
         'alert',
         'unit_id',
+        'sku',
+        'barcode',
         'manage_stock',
         'for_sale',
         'product_type',

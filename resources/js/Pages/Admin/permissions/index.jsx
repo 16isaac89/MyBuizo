@@ -74,9 +74,9 @@ export default function index() {
             <Head title="Profile" />
 
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-sm w-full lg:max-w-full lg:flex">
                 <Link href={route('permissions.create')}>ADD</Link>
-                <div className="card">
+                <div class="max-w-sm w-full lg:max-w-full lg:flex">
                   <Datatable 
                   tableheaders={tableheaders} 
                   currentData={currentData} 

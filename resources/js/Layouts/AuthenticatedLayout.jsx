@@ -5,6 +5,8 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 import Sidebar from '../Components/Sidebar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBars}from '@fortawesome/free-solid-svg-icons'
 //theme
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
 //core
@@ -14,7 +16,11 @@ import "primeicons/primeicons.css";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
+    const toggleSidebar = () => {
+      setSidebarOpen(!sidebarOpen);
+    };
     return (
         <div className='flex min-h-screen'>
             <Sidebar />
@@ -23,7 +29,15 @@ export default function Authenticated({ user, header, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
-                         
+                        <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <button
+        onClick={toggleSidebar}
+        className="text-black hover:text-black-400 focus:outline-none focus:text-gray-400"
+      >
+        
+         <FontAwesomeIcon icon={faBars} size="lg" /> 
+      </button>
+      </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
@@ -123,8 +137,16 @@ export default function Authenticated({ user, header, children }) {
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
+<div className="max-w-sm w-full lg:max-w-full lg:flex bg-pearl-white shadow">   
+<div
+  className="block rounded-lg w-full bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <main>
+    {children}</main>
+ 
+</div>         
 
-            <main>{children}</main>
+</div>
+
         </div>
         </div>
     );
